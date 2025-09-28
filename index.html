@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShieldUp - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .fade-up.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 text-white fixed w-full z-50">
+      <div
+        class="container mx-auto px-4 flex justify-between items-center py-4"
+      >
+        <a href="index.html" class="text-2xl font-bold">ShieldUp</a>
+        <div class="md:hidden">
+          <button id="menu-btn" class="focus:outline-none">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+        <ul id="menu" class="hidden md:flex space-x-6">
+          <li><a href="index.html" class="hover:text-gray-200">Home</a></li>
+          <li>
+            <a href="about.html" class="hover:text-gray-200">About</a>
+          </li>
+          <li><a href="stis.html" class="hover:text-gray-200">STIs</a></li>
+          <li><a href="tools.html" class="hover:text-gray-200">Tools</a></li>
+          <li><a href="faq.html" class="hover:text-gray-200">FAQ</a></li>
+          <li>
+            <a href="resources.html" class="hover:text-gray-200">Resources</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="bg-blue-600 text-white pt-28 pb-20 fade-up">
+      <div class="container mx-auto text-center px-4">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">ShieldUp</h1>
+        <p class="text-xl md:text-2xl mb-6">
+          Protect yourself. Protect your partner. Stay informed.
+        </p>
+        <a
+          href="#about"
+          class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100"
+          >Learn More</a
+        >
+      </div>
+    </section>
+
+    <!-- About / Who We Are -->
+    <section id="about" class="py-16 fade-up">
+      <div class="container mx-auto px-4 max-w-3xl text-center">
+        <h2 class="text-3xl font-bold mb-6">Who We Are</h2>
+        <p class="mb-4">
+          ShieldUp raises awareness about sexual health, safe sex practices, and
+          preventive tools like dental dams and condoms worldwide. Our goal is
+          to educate, inform, and empower individuals with the knowledge to
+          protect themselves and their partners.
+        </p>
+        <p class="mb-4">
+          Through this platform, users can access detailed information on common
+          STIs, learn how to use protective tools, debunk myths, and discover
+          local resources and clinics. We aim to create a safe space for
+          learning and discussion.
+        </p>
+
+        <!-- Extra Subsections -->
+        <div class="mt-8 text-left">
+          <h3 class="text-2xl font-semibold mb-2">Why ShieldUp?</h3>
+          <p class="mb-4">
+            Sexual health is often overlooked or stigmatized in many
+            communities. ShieldUp provides accurate, culturally relevant, and
+            accessible information to break the taboo and encourage safer
+            practices.
+          </p>
+          <h3 class="text-2xl font-semibold mb-2">How to Stay Safe</h3>
+          <p class="mb-4">
+            Using barrier methods like condoms and dental dams, regular testing,
+            vaccination (HPV), and open communication with partners are key
+            steps to reduce risks of STIs.
+          </p>
+          <h3 class="text-2xl font-semibold mb-2">Quick Tips</h3>
+          <ul class="list-disc list-inside mb-4">
+            <li>Always use a condom or dental dam during sexual activity.</li>
+            <li>Get tested regularly for STIs.</li>
+            <li>Communicate openly with your partner about sexual health.</li>
+            <li>
+              Educate yourself from reliable sources like WHO, CDC, and Planned
+              Parenthood.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-16 mt-8 fade-up text-center">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <h2 class="text-3xl font-bold mb-4">About ShieldUp</h2>
+        <p class="mb-4">
+          ShieldUp provides sexual health awareness, preventive tools guidance,
+          and safe intimacy tips worldwide. Learn about STIs, myths, and local
+          resources.
+        </p>
+        <p class="mb-4">
+          Our mission is to empower people with knowledge and tools for a
+          healthier, safer life.
+        </p>
+        <p class="mb-2">
+          📧
+          <a
+            href="mailto:sharminakter.pciu@gmail.com"
+            class="underline hover:text-gray-200"
+            >sharminakter.pciu@gmail.com</a
+          >
+        </p>
+        <p class="mb-2">
+          🔗
+          <a
+            href="https://www.linkedin.com/in/sharminakter890/"
+            class="underline hover:text-gray-200"
+            target="_blank"
+            >LinkedIn Profile</a
+          >
+        </p>
+        <p class="mt-6 text-sm">© 2025 ShieldUp. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Hamburger menu toggle
+      const menuBtn = document.getElementById("menu-btn");
+      const menu = document.getElementById("menu");
+      menuBtn.addEventListener("click", () => menu.classList.toggle("hidden"));
+
+      // Fade-up animation
+      document.addEventListener("DOMContentLoaded", () => {
+        const faders = document.querySelectorAll(".fade-up");
+        const appearOptions = { threshold: 0.2 };
+        const appearOnScroll = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          });
+        }, appearOptions);
+        faders.forEach((fader) => appearOnScroll.observe(fader));
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShieldUp - Resources</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .fade-up.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .resource-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 text-white fixed w-full z-50">
+      <div
+        class="container mx-auto px-4 flex justify-between items-center py-4"
+      >
+        <a href="index.html" class="text-2xl font-bold">ShieldUp</a>
+        <div class="md:hidden">
+          <button id="menu-btn" class="focus:outline-none">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+        <ul id="menu" class="hidden md:flex space-x-6">
+          <li><a href="index.html" class="hover:text-gray-200">Home</a></li>
+          <li><a href="stis.html" class="hover:text-gray-200">STIs</a></li>
+          <li><a href="tools.html" class="hover:text-gray-200">Tools</a></li>
+          <li><a href="faq.html" class="hover:text-gray-200">FAQ</a></li>
+          <li>
+            <a href="resources.html" class="hover:text-gray-200">Resources</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-20 fade-up">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <h2 class="text-3xl font-bold mb-8 text-center">Resources</h2>
+
+        <!-- Resource 1 -->
+        <div class="mb-4 border-b border-gray-300 fade-up">
+          <button
+            class="w-full text-left py-4 font-semibold text-lg focus:outline-none resource-btn"
+          >
+            CDC Resources
+          </button>
+          <div class="resource-content text-gray-700">
+            <ul class="list-disc list-inside py-2">
+              <li>
+                <a
+                  href="https://www.cdc.gov/sexualhealth/"
+                  target="_blank"
+                  class="text-blue-600 hover:underline"
+                  >CDC: Sexual Health Resources</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Resource 2 -->
+        <div class="mb-4 border-b border-gray-300 fade-up">
+          <button
+            class="w-full text-left py-4 font-semibold text-lg focus:outline-none resource-btn"
+          >
+            WHO Resources
+          </button>
+          <div class="resource-content text-gray-700">
+            <ul class="list-disc list-inside py-2">
+              <li>
+                <a
+                  href="https://www.who.int/health-topics/sexually-transmitted-infections"
+                  target="_blank"
+                  class="text-blue-600 hover:underline"
+                  >WHO: STIs</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Resource 3 -->
+        <div class="mb-4 border-b border-gray-300 fade-up">
+          <button
+            class="w-full text-left py-4 font-semibold text-lg focus:outline-none resource-btn"
+          >
+            Planned Parenthood
+          </button>
+          <div class="resource-content text-gray-700">
+            <ul class="list-disc list-inside py-2">
+              <li>
+                <a
+                  href="https://www.plannedparenthood.org/learn/stds-hiv-safer-sex"
+                  target="_blank"
+                  class="text-blue-600 hover:underline"
+                  >Planned Parenthood: Safer Sex Tips</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Resource 4 -->
+        <div class="mb-4 border-b border-gray-300 fade-up">
+          <button
+            class="w-full text-left py-4 font-semibold text-lg focus:outline-none resource-btn"
+          >
+            AIDSMap
+          </button>
+          <div class="resource-content text-gray-700">
+            <ul class="list-disc list-inside py-2">
+              <li>
+                <a
+                  href="https://www.aidsmap.com/about-hiv"
+                  target="_blank"
+                  class="text-blue-600 hover:underline"
+                  >AIDSMap: HIV Info</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-12 mt-8 fade-up text-center">
+      <p>
+        © 2025 ShieldUp |
+        <a href="index.html" class="underline">Back to Home</a>
+      </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const menu = document.getElementById("menu");
+      menuBtn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const faders = document.querySelectorAll(".fade-up");
+        const appearOptions = { threshold: 0.2 };
+        const appearOnScroll = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          });
+        }, appearOptions);
+        faders.forEach((fader) => appearOnScroll.observe(fader));
+
+        // Resources collapsible
+        const resourceBtns = document.querySelectorAll(".resource-btn");
+        resourceBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const content = btn.nextElementSibling;
+            if (content.style.maxHeight) {
+              content.style.maxHeight = null;
+            } else {
+              content.style.maxHeight = content.scrollHeight + "px";
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
